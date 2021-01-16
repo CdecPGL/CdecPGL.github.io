@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.css" />
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -52,80 +52,62 @@
         <p class="lead">GitHubで公開しているプログラムです。</p>
     </div>
 
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" id="repos_panel">
-            <div class="col" v-for="repo in repos">
-                <div class="card h-100">
-                    <div class="card-header">
+    <b-container id="repos_panel">
+        <b-row cols="1" cols-md="2" cols-lg="3" cols-xl="4">
+            <b-col v-for="repo in repos">
+                <b-card class="h-100">
+                    <template #header>
                         <i class="fas fa-star"></i>{{ repo.starCount }}
-
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="{{ repo.url }}">{{ repo.name }}</a></h5>
-                        <p class="card-text">{{ repo.description }}</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">
+                    </template>
+                    <b-link :href="repo.url" target="_blank">
+                        <b-card-title>{{ repo.name }}</b-card-title>
+                    </b-link>
+                    <b-card-text>{{ repo.description }}</b-card-text>
+                    <template #footer> <small class="text-muted">
                             言語: {{ repo.language }}<br />
                             更新: {{ repo.updateDatetime }}<br />
                         </small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </template>
+                </b-card>
+            </b-col>
+        </b-row>
+    </b-container>
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">ゲーム</h1>
         <p class="lead">今まで公開したゲームです。</p>
     </div>
 
-    <div class="container">
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" id="games_panel">
-            <div class="col" v-for="game in games">
-                <div class="card h-100">
-                    <div class="card-header">{{ game.header }}</div>
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <ol class="carousel-indicators" v-for="(thumbnail, index) in game.thumbnails">
-                            <li data-bs-target="#carouselExampleIndicators" :data-bs-slide-to="index" :class="{ active: index===0 }"></li>
-                        </ol>
-                        <div class="carousel-inner" v-for="(thumbnail, index) in game.thumbnails">
-                            <div class="carousel-item" :class="{ active: index===0 }">
-                                <img :src="thumbnail" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
-                            data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
-                            data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ game.title }}</h5>
-                        <p class="card-text">{{ game.body }}</p>
-                    </div>
-                    <div class="card-footer">
+    <b-container id="games_panel">
+        <b-row cols="1" cols-md="2" cols-lg="3">
+            <b-col v-for="game in games">
+                <b-card class="h-100">
+                    <template #header>{{ game.header }}</template>
+                    <b-link :href="game.url" target="_blank">
+                        <b-card-title>{{ game.title }}</b-card-title>
+                    </b-link>
+                    <b-carousel controls indicators interval="5000">
+                        <b-carousel-slide :img-src="thumbnail" v-for="thumbnail in game.thumbnails">
+                        </b-carousel-slide>
+                    </b-carousel>
+                    <b-card-text>{{ game.body }}</b-card-text>
+                    <template #footer>
                         <small class="text-muted">
                             <div v-for="footer in game.footers">{{ footer }}<br /></div>
                         </small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </template>
+                </b-card>
+            </b-col>
+        </b-row>
+    </b-container>
 
 
     <footer class="footer"></footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://unpkg.com/vue@2.6.12/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
     <script src="https://kit.fontawesome.com/16783d9da8.js" crossorigin="anonymous"></script>
 
     <script src="utility.js"></script>

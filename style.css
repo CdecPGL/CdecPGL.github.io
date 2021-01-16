@@ -1,0 +1,5 @@
+.col {
+    /* Gridレイアウトで自動改行された要素の上下に隙間を作る */
+    padding-top: 8px;
+    padding-bottom: 8px;
+}

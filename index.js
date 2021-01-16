@@ -1,3 +1,5 @@
+Vue.use(BootstrapVue)
+
 const repos_panel = new Vue({
     el: '#repos_panel',
     data: {
@@ -23,7 +25,7 @@ fetch('https://api.github.com/users/CdecPGL/repos').then((response) => {
         return {
             name: r.name,
             description: r.description,
-            url: r.url,
+            url: r.html_url,
             starCount: r.stargazers_count,
             language: r.language,
             updateDatetime: updateDatetimeString
