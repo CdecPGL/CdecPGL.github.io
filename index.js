@@ -40,6 +40,7 @@ games_panel.games = GAMES.map(g => {
         body: g.description,
         footers: getGameFooters(g),
         thumbnails: g.thumbnails,
+        url: g.url,
     }
 })
 

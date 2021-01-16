@@ -2,13 +2,13 @@ const GAMES = [
     {
         name: 'WirePlanet',
         genre: '2Dシューティング',
-        version: [1, 1, 1],
+        version: [1, 2, 0],
         releaseDate: [2014, 11, 8],
-        updateDate: [2016, 5, 1],
+        updateDate: [2017, 12, 20],
         description: '線でできた世界で、迫ってくる敵から惑星を守るシンプルなシューティングゲーム。',
         platforms: ['Windows'],
-        thumbnails: ['games/wire_planet/wp_title_sc.png', 'games/wire_planet/wp_sample_sc.jpg'],
-        url: '',
+        thumbnails: ['games/wire_planet/graphics/wp_title_sc.png', 'games/wire_planet/graphics/wp_sample_sc.png'],
+        url: 'games/wire_planet',
         state: GAME_STATE_RELEASED,
     }, {
         name: '伸縮性の高い石頭少女いしあたまーるちゃん',
