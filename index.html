@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Planeta Game Labo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">技術的記事</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ゲーム</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">更新履歴</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">ピックアップ</h1>
+        <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap
+            example. It's built with default Bootstrap components and utilities with little customization.</p>
+    </div>
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">プログラム</h1>
+        <p class="lead">GitHubで公開しているプログラムです。</p>
+    </div>
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" id="repos_panel">
+            <div class="col" v-for="repo in repos">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <i class="fas fa-star"></i>{{ repo.starCount }}
+
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="{{ repo.url }}">{{ repo.name }}</a></h5>
+                        <p class="card-text">{{ repo.description }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">
+                            言語: {{ repo.language }}<br />
+                            更新: {{ repo.updateDatetime }}<br />
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">ゲーム</h1>
+        <p class="lead">今まで公開したゲームです。</p>
+    </div>
+
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4" id="games_panel">
+            <div class="col" v-for="game in games">
+                <div class="card h-100">
+                    <div class="card-header">{{ game.header }}</div>
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <ol class="carousel-indicators" v-for="(thumbnail, index) in game.thumbnails">
+                            <li data-bs-target="#carouselExampleIndicators" :data-bs-slide-to="index" :class="{ active: index===0 }"></li>
+                        </ol>
+                        <div class="carousel-inner" v-for="(thumbnail, index) in game.thumbnails">
+                            <div class="carousel-item" :class="{ active: index===0 }">
+                                <img :src="thumbnail" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ game.title }}</h5>
+                        <p class="card-text">{{ game.body }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">
+                            <div v-for="footer in game.footers">{{ footer }}<br /></div>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer"></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="https://kit.fontawesome.com/16783d9da8.js" crossorigin="anonymous"></script>
+
+    <script src="utility.js"></script>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
