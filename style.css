@@ -1,5 +1,34 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+}
+
 .col {
     /* Gridレイアウトで自動改行された要素の上下に隙間を作る */
     padding-top: 8px;
     padding-bottom: 8px;
+}
+
+#navbar #github-link i {
+    color: #FFFFFF;
+}
+
+#navbar #giita-link img {
+    height: 1em;
+    position: relative;
+    top: -2px;
+}
+
+#navbar #twitter-link i {
+    color: #55ACEE;
+}
+
+#navbar #blog-link img {
+    height: 1em;
+    position: relative;
+    top: -2px;
+    filter: hue-rotate(20deg) brightness(350%);
+}
+
+#navbar #email-link i {
+    color: #ffffff9a;
 }

@@ -58,7 +58,7 @@ const GAMES = [
         name: '光影の塔',
         genre: '3Dシューティング',
         version: [0, 13, 0],
-        releaseDate: [2021, 4],
+        releaseDate: [2021, 6],
         description: '光の中を駆け巡る！　爽快感満載のオンライン対戦型3Dシューティングゲーム。',
         platforms: ['Windows'],
         thumbnails: [],

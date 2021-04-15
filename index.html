@@ -4,7 +4,7 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.css" />
@@ -13,72 +13,135 @@
         integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
-    <title>Hello, world!</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@2.6.12/dist/vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@2.21.2/dist/bootstrap-vue-icons.min.js"></script>
+
+    <title>Cdecプロフィール</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Planeta Game Labo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">技術的記事</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ゲーム</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">更新履歴</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <b-navbar id="navbar" toggleable="lg" type="dark" variant="dark">
+        <b-navbar-brand>Cdecプロフィール</b-navbar-brand>
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-4">ピックアップ</h1>
-        <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap
-            example. It's built with default Bootstrap components and utilities with little customization.</p>
-    </div>
+        <b-collapse id="nav-collapse" is-nav>
+            <b-navbar-nav class="me-auto mb-2 mb-lg-0">
+                <b-nav-item id="github-link" href="https://github.com/CdecPGL" target="_blank">
+                    <i class="fab fa-github"></i>
+                </b-nav-item>
+                <b-nav-item id="giita-link" href="https://qiita.com/CdecPGL" target="_blank">
+                    <img src="./materials/qiita_favicon.png">
+                </b-nav-item>
+                <b-nav-item id="twitter-link" href="https://twitter.com/CdecPGL" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </b-nav-item>
+                <b-nav-item id="blog-link" href="https://cdecrement.blog.fc2.com/" target="_blank">
+                    <img src="./materials/blog_icon.png">
+                </b-nav-item>
+                <b-nav-item id="email-link" href="mailto:cdecrement@gmail.com" target="_blank">
+                    <i class="fas fa-envelope"></i>
+                </b-nav-item>
+            </b-navbar-nav>
 
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <b-navbar-nav class="me-auto mb-2 mb-lg-0">
+                <b-nav-item id="clabt-link" href="#" target="_blank" disabled>
+                    C-Lab Tech
+                </b-nav-item>
+                <b-nav-item id="clabg-link" href="#" target="_blank" disabled>
+                    C-Lab Game
+                </b-nav-item>
+                <b-nav-item id="luftelli-link" href="https://luftelli.github.io/" target="_blank">
+                    Luftelli
+                </b-nav-item>
+                <b-nav-item id="pgl-link" href="https://planetagamelabo.com/homepage/" target="_blank">
+                    プラネタゲームラボ
+                </b-nav-item>
+            </b-navbar-nav>
+        </b-collapse>
+
+        <b-popover target="clabt-link" triggers="hover" placement="top">
+            <template #title>技術情報まとめ場所</template>
+            作成中。
+        </b-popover>
+        <b-popover target="clabg-link" triggers="hover" placement="top">
+            <template #title>制作ゲームまとめ場所</template>
+            作成中。
+        </b-popover>
+        <b-popover target="pgl-link" triggers="hover" placement="top">
+            <template #title>個人制作ゲーム置き場</template>
+            数年放置している。改装予定。
+        </b-popover>
+        <b-popover target="luftelli-link" triggers="hover" placement="top">
+            <template #title>ゲーム制作サークル</template>
+            オンライン対戦型3Dシューティングゲーム「光影の塔」を制作している4人のサークルです。
+        </b-popover>
+        <b-popover target="github-link" triggers="hover" placement="top">
+            <template #title>GitHub</template>
+            作成したライブラリ等のコードを置いています。
+        </b-popover>
+        <b-popover target="giita-link" triggers="hover" placement="top">
+            <template #title>Qiita</template>
+            技術的記事を書いています。（あまり書いてない）
+        </b-popover>
+        <b-popover target="twitter-link" triggers="hover" placement="top">
+            <template #title>Twitter</template>
+            何かしらつぶやいています。
+        </b-popover>
+        <b-popover target="blog-link" triggers="hover" placement="top">
+            <template #title>個人ブログ</template>
+            日記として気まぐれに書いています。（数年更新してない）
+        </b-popover>
+        <b-popover target="email-link" triggers="hover" placement="top">
+            <template #title>メール</template>
+            メールアドレス。
+        </b-popover>
+    </b-navbar>
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">プログラム</h1>
         <p class="lead">GitHubで公開しているプログラムです。</p>
     </div>
 
-    <b-container id="repos_panel">
+    <b-container id="repos-panel">
         <b-row cols="1" cols-md="2" cols-lg="3" cols-xl="4">
             <b-col v-for="repo in repos">
                 <b-card class="h-100">
                     <template #header>
-                        <i class="fas fa-star"></i>{{ repo.starCount }}
+                        <i class="fas fa-star"></i>{{ repo.starCount }}&ensp;<i class="fas fa-code-branch"></i>{{
+                        repo.forkCount }}
                     </template>
                     <b-link :href="repo.url" target="_blank">
-                        <b-card-title>{{ repo.name }}</b-card-title>
+                        <b-card-title>{{ repo.title }}</b-card-title>
                     </b-link>
-                    <b-card-text>{{ repo.description }}</b-card-text>
-                    <template #footer> <small class="text-muted">
-                            言語: {{ repo.language }}<br />
-                            更新: {{ repo.updateDatetime }}<br />
+                    <b-card-text>{{ repo.body }}</b-card-text>
+                    <template #footer>
+                        <small class="text-muted">
+                            <div v-for="footer in repo.footers">{{ footer }}<br /></div>
                         </small>
                     </template>
                 </b-card>
             </b-col>
         </b-row>
+        <b-row cols="1" cols-lg="2">
+            <b-col>
+                <img src="https://github-readme-stats.vercel.app/api?username=CdecPGL&count_private=true&show_icons=true"
+                    width="100%" frameborder="0">
+            </b-col>
+            <b-col>
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CdecPGL&layout=compact"
+                    width="100%" frameborder="0">
+            </b-col>
+        </b-row>
     </b-container>
 
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">ゲーム</h1>
         <p class="lead">今まで公開したゲームです。</p>
     </div>
 
-    <b-container id="games_panel">
+    <b-container id="games-panel">
         <b-row cols="1" cols-md="2" cols-lg="3">
             <b-col v-for="game in games">
                 <b-card class="h-100">
@@ -104,10 +167,6 @@
 
     <footer class="footer"></footer>
 
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CIntersectionObserver"
-        crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@2.6.12/dist/vue.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
     <script src="https://kit.fontawesome.com/16783d9da8.js" crossorigin="anonymous"></script>
 
     <script src="utility.js"></script>
