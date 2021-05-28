@@ -8,6 +8,14 @@ new Vue({
     }
 })
 
+new Vue({
+    el: "#repos-abstract",
+    data: {
+    },
+    methods: {
+    }
+})
+
 const repos_panel = new Vue({
     el: '#repos-panel',
     data: {
@@ -15,8 +23,15 @@ const repos_panel = new Vue({
     }
 })
 
-const games_panel = new Vue({
-    el: '#games-panel',
+const developing_games_panel = new Vue({
+    el: '#developing-games-panel',
+    data: {
+        games: []
+    }
+})
+
+const released_games_panel = new Vue({
+    el: '#released-games-panel',
     data: {
         games: []
     }
@@ -39,7 +54,18 @@ fetch('https://api.github.com/users/CdecPGL/repos').then((response) => {
     }).sort((a, b) => b.starCount - a.starCount);
 });
 
-games_panel.games = GAMES.map(g => {
+developing_games_panel.games = GAMES.filter(g => g.state === GAME_STATE_DEVELOPING).map(g => {
+    return {
+        header: getGameHeader(g),
+        title: g.name,
+        body: g.description,
+        footers: getGameFooters(g),
+        thumbnails: g.thumbnails,
+        url: g.url,
+    }
+})
+
+released_games_panel.games = GAMES.filter(g => g.state === GAME_STATE_RELEASED).map(g => {
     return {
         header: getGameHeader(g),
         title: g.name,
@@ -51,7 +77,7 @@ games_panel.games = GAMES.map(g => {
 })
 
 function getRepoFooters(r) {
-    const updateDatetime = new Date(r.updated_at);
+    const updateDatetime = new Date(r.pushed_at);
     const updateDatetimeString = `${updateDatetime.getFullYear()}年${updateDatetime.getMonth() + 1}月${updateDatetime.getDate()}日`;
 
     return [
@@ -64,7 +90,7 @@ function getGameHeader(g) {
     switch (g.state) {
         case GAME_STATE_DEVELOPING:
             if (!isNullOrUndefined(g.releaseDate)) {
-                return `${getTextFromDatetimeArray(g.releaseDate)}公開予定（開発中）`;
+                return `${getTextFromDatetimeArray(g.releaseDate)}公開予定`;
             }
 
             return '開発中';
