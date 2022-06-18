@@ -7,8 +7,8 @@ const GAMES = [
         updateDate: [2017, 12, 20],
         description: '線でできた世界で、迫ってくる敵から惑星を守るシンプルなシューティングゲーム。',
         platforms: ['Windows'],
-        thumbnails: ['games/wire_planet/graphics/wp_title_sc.png', 'games/wire_planet/graphics/wp_sample_sc.png'],
-        url: 'games/wire_planet',
+        thumbnails: ['games/wire_planet/wp_title_sc.png', 'games/wire_planet/wp_sample_sc.png'],
+        url: 'https://planetagamelabo.com/wireplanet/',
         state: GAME_STATE_RELEASED,
     }, {
         name: '伸縮性の高い石頭少女いしあたまーるちゃん',
@@ -19,7 +19,7 @@ const GAMES = [
         description: '伸縮性の高い石頭少女を操作して上から落ちてくる岩を破壊するだけの謎のゲーム。',
         platforms: ['Android', 'Windows'],
         thumbnails: ['games/ishiatamachan/android_sc0.png', 'games/ishiatamachan/android_sc2.png', 'games/ishiatamachan/android_sc1.png'],
-        url: '',
+        url: 'https://planetagamelabo.com/games/ishiatamachan/',
         state: GAME_STATE_RELEASED,
     }, {
         name: '逼迫性の高いだんごむし少女だんごむしむしむしむっしちゃん',
@@ -30,7 +30,7 @@ const GAMES = [
         description: '寿命の迫っただんごむしの少女を操作して、逃げていくわらじむし共を爆殺するだけの謎のゲーム。',
         platforms: ['Windows'],
         thumbnails: ['games/dangomushichan/screen_shot_1.jpg', 'games/dangomushichan/screen_shot_0.jpg', 'games/dangomushichan/screen_shot_2.jpg'],
-        url: '',
+        url: 'https://planetagamelabo.com/games/dangomushichan/',
         state: GAME_STATE_RELEASED,
     }, {
         name: '飛行可能性を得た石頭少女いしあたまーるちゃん',
@@ -41,7 +41,7 @@ const GAMES = [
         description: '空飛ぶ石頭少女を操作して、上から落ちてくる岩や鉄球を破壊するだけの謎のゲーム。',
         platforms: ['Windows'],
         thumbnails: ['games/ishiatamachan2/isiatama2_ss_title.png', 'games/ishiatamachan2/isiatama2_ss_2.png', 'games/ishiatamachan2/isiatama2_ss_1.png'],
-        url: '',
+        url: 'https://planetagamelabo.com/games/ishiatamachan2/',
         state: GAME_STATE_RELEASED,
     }, {
         name: '10円玉工場で働こう！',
@@ -57,22 +57,30 @@ const GAMES = [
     }, {
         name: '光影の塔',
         genre: '3Dシューティング',
-        version: [0, 14, 0],
-        releaseDate: [2021, 9],
+        version: [0, 17, 0],
+        releaseDate: [2022],
         description: '光の中を駆け巡る！　爽快感満載のオンライン対戦型3Dシューティングゲーム。',
         platforms: ['Windows', 'MacOS X'],
-        thumbnails: [],
-        url: '',
-        state: GAME_STATE_DEVELOPING,
-    }, {
-        name: '地獄に落ちたきりたんぽ',
-        genre: '2Dアクション',
-        version: [0, 0, 0],
-        releaseDate: [2021, 7],
-        description: '地獄に落ちたきりたんぽが、道中のちくわを踏みつぶしてドーナツにしながら現世を目指して上へ登っていく謎のゲーム。',
-        platforms: ['ブラウザ', 'Windows'],
-        thumbnails: [],
-        url: '',
+        thumbnails: [
+            'games/koueinotou/ss1_japanese.jpg',
+            'games/koueinotou/ss4_japanese.jpg',
+            'games/koueinotou/ss2_japanese.jpg',
+            'games/koueinotou/ss5_japanese.jpg',
+            'games/koueinotou/ss3_japanese.jpg',
+            'games/koueinotou/ss6_japanese.jpg'
+        ],
+        url: 'https://koueinotou.luftelli.com',
         state: GAME_STATE_DEVELOPING,
     }
+    // , {
+    //     name: '地獄に落ちたきりたんぽ',
+    //     genre: '2Dアクション',
+    //     version: [0, 0, 0],
+    //     releaseDate: [2023],
+    //     description: '地獄に落ちたきりたんぽが、道中のちくわを踏みつぶしてドーナツにしながら現世を目指して上へ登っていく謎のゲーム。',
+    //     platforms: ['ブラウザ', 'Windows'],
+    //     thumbnails: [],
+    //     url: '',
+    //     state: GAME_STATE_DEVELOPING,
+    // }
 ];

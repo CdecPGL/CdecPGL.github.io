@@ -47,12 +47,12 @@
             </b-navbar-nav>
 
             <b-navbar-nav class="me-auto mb-2 mb-lg-0">
-                <b-nav-item id="clabt-link" href="#" target="_blank" disabled>
+                <!-- <b-nav-item id="clabt-link" href="#" target="_blank" disabled>
                     C-Lab Tech
                 </b-nav-item>
                 <b-nav-item id="clabg-link" href="#" target="_blank" disabled>
                     C-Lab Game
-                </b-nav-item>
+                </b-nav-item> -->
                 <b-nav-item id="luftelli-link" href="https://luftelli.github.io/" target="_blank">
                     Luftelli
                 </b-nav-item>
@@ -72,7 +72,7 @@
         </b-popover>
         <b-popover target="pgl-link" triggers="hover" placement="top">
             <template #title>個人制作ゲーム置き場</template>
-            数年放置している。改装予定。
+            個人で作ったゲームを置いています。
         </b-popover>
         <b-popover target="luftelli-link" triggers="hover" placement="top">
             <template #title>ゲーム制作サークル</template>
@@ -101,100 +101,15 @@
     </b-navbar>
 
     <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <p class="text-center">趣味でゲームを作っています。仕事はゲームとは関係のないWebサービス開発エンジニア</p>
-        <p class="text-center">趣味はゲーム制作、ゲーム（プレイするほう）、SF・ホラー映画鑑賞趣、自作PC</p>
+        <p class="text-center">プライベートでゲームを作っています。仕事はゲームとは関係のないソフトウェアエンジニア。</p>
+        <p class="text-center">趣味はゲーム制作、ゲーム（プレイするほう）、SF・ホラー映画鑑賞趣、自作PC。</p>
     </div>
-
-    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <h1 class="display-5">ソフトウェア開発</h1>
-    </div>
-
-    <b-container id="repos-abstract">
-        <!-- <b-row cols="1" cols-lg="2">
-            <b-col>
-                <img src="https://github-readme-stats.vercel.app/api?username=CdecPGL&count_private=true&show_icons=true"
-                    width="100%" frameborder="0">
-            </b-col>
-            <b-col>
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CdecPGL&layout=compact"
-                    width="100%" frameborder="0">
-            </b-col>
-        </b-row> -->
-        <b-row class="text-center">
-            <b-col cols="9">
-                <p>趣味のゲーム制作と仕事でプログラムを書いています。</p>
-                <ul class="text-left">
-                    <li>C++: 主にゲーム制作で使用
-                        <ul>
-                            <li>2013-2014年: DXライブラリを用いた2Dシューティングゲーム制作 [ソースコード]</li>
-                            <li>2014-2016年: DXライブラリを用いた2Dゲームエンジン開発（断念） [ソースコード]</li>
-                            <li>2018年-現在: boost.asioを用いたTCPオンラインゲームマッチングサーバー開発 [ソースコード]</li>
-                        </ul>
-                    </li>
-                    <li>C#: 主にゲーム制作で使用
-                        <ul>
-                            <li>2014年: Unityを用いた2Dアクションゲーム制作</li>
-                            <li>2015年: Unityを用いた2Dアクションゲーム制作</li>
-                            <li>2016年: Unityを用いた見下ろし型2Dアクションゲーム制作</li>
-                            <li>2017年-現在: Unityを用いたオンライン3Dシューティングゲーム制作 [ソースコード]</li>
-                        </ul>
-                    </li>
-                    <li>Python: 大学時代の研究で使用していた。今は補助ツールの作成でたまに使用
-                        <ul>
-                            <li>2016年: Chainerを用いた画像認識の実装（研究）</li>
-                            <li>2017-2018年: Caffe, Chainerを用いた画像認識の実装（研究）</li>
-                            <li>2019年: Ansibleモジュールの実装（仕事）</li>
-                        </ul>
-                    </li>
-                    <li>JavaScript: 主に仕事で使用</li>
-                    <ul>
-                        <li>2020年: Node.jsを用いた外部サービス連携開発、Node.jsを用いたWeb API開発補助（仕事）</li>
-                        <li>2021年-現在: Chrome拡張の開発補助（仕事）</li>
-                    </ul>
-                    <li>TypeScript: 主に仕事で使用
-                        <ul>
-                            <li>2021年-現在: Node.jsを用いたWebSocketサーバー開発、Reactを用いたフロント開発補助（仕事）</li>
-                        </ul>
-                    </li>
-                </ul>
-            </b-col>
-            <b-col>
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CdecPGL"
-                    width="100%" frameborder="0">
-            </b-col>
-        </b-row>
-    </b-container>
-
-    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-        <p class="lead">GitHubで公開している主なリポジトリ</p>
-        <p>主にゲーム制作における生成物を公開しています。</p>
-    </div>
-
-    <b-container id="repos-panel">
-        <b-row cols="1" cols-md="2" cols-lg="3" cols-xl="4">
-            <b-col v-for="repo in repos">
-                <b-card class="h-100">
-                    <template #header>
-                        <i class="fas fa-star"></i>{{ repo.starCount }}&ensp;<i class="fas fa-code-branch"></i>{{
-                        repo.forkCount }}
-                    </template>
-                    <b-link :href="repo.url" target="_blank">
-                        <b-card-title>{{ repo.title }}</b-card-title>
-                    </b-link>
-                    <b-card-text>{{ repo.body }}</b-card-text>
-                    <template #footer>
-                        <small class="text-muted">
-                            <div v-for="footer in repo.footers">{{ footer }}<br /></div>
-                        </small>
-                    </template>
-                </b-card>
-            </b-col>
-        </b-row>
-    </b-container>
 
     <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-5">ゲーム制作</h1>
-        <p>現在はオンライン対戦3Dシューティングゲームを完成に向けて制作しています。主にUnityを使用してゲームを制作しています。完成までこぎつけたのはネタゲーが多い。プログラム中心でグラフィックやサウンドなどがおろそかになりがち……</p>
+        <p>現在はオンライン対戦3Dシューティングゲームを完成に向けて制作しています。主にUnityを使用してゲームを制作しています。完成までこぎつけたのはネタゲーが多い。プログラム中心でグラフィックやサウンドなどがおろそかになりがち……
+        </p>
+        <p>直近の目標は作ったゲームで収益を得ること。</p>
     </div>
 
     <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
@@ -244,6 +159,103 @@
                     <template #footer>
                         <small class="text-muted">
                             <div v-for="footer in game.footers">{{ footer }}<br /></div>
+                        </small>
+                    </template>
+                </b-card>
+            </b-col>
+        </b-row>
+    </b-container>
+
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-5">ソフトウェア開発</h1>
+    </div>
+
+    <b-container id="repos-abstract">
+        <!-- <b-row cols="1" cols-lg="2">
+            <b-col>
+                <img src="https://github-readme-stats.vercel.app/api?username=CdecPGL&count_private=true&show_icons=true"
+                    width="100%" frameborder="0">
+            </b-col>
+            <b-col>
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CdecPGL&layout=compact"
+                    width="100%" frameborder="0">
+            </b-col>
+        </b-row> -->
+        <b-row class="text-center">
+            <b-col cols="9">
+                <p>プライベートのゲーム制作と仕事でプログラムを書いています。</p>
+                <ul class="text-left">
+                    <li>C++: 主にゲーム制作で使用
+                        <ul>
+                            <li>2013-2014年: DXライブラリを用いた2Dシューティングゲーム制作（プライベート）<a
+                                    href="https://github.com/CdecPGL/Shooting-Game-WirePlanet" target="_blank"><i
+                                        class="fab fa-github"></i></a>
+                            </li>
+                            <li>2014-2016年: DXライブラリを用いた2Dゲームエンジン開発（断念）（プライベート）<a
+                                    href="https://github.com/CdecPGL/PlanetaEngine" target="_blank"><i
+                                        class="fab fa-github"></i></a>
+                            </li>
+                            <li>2018年-現在: boost.asioを用いたオンラインゲーム向け軽量マッチングサーバー開発（プライベート）<a
+                                    href="https://github.com/CdecPGL/PlanetaMatchMaker" target="_blank"><i
+                                        class="fab fa-github"></i></a></li>
+                        </ul>
+                    </li>
+                    <li>C#: 主にゲーム制作で使用
+                        <ul>
+                            <li>2014年: Unityを用いた2Dアクションゲーム制作（プライベート）</li>
+                            <li>2015年: Unityを用いた2Dアクションゲーム制作（プライベート）</li>
+                            <li>2016年: Unityを用いた見下ろし型2Dアクションゲーム制作（プライベート）</li>
+                            <li>2017年-現在: Unityを用いたオンライン3Dシューティングゲーム制作（プライベート）</li>
+                        </ul>
+                    </li>
+                    <li>Python: 大学時代の研究・仕事で使用
+                        <ul>
+                            <li>2016年: Chainerを用いた画像認識の実装（研究）</li>
+                            <li>2017-2018年: Caffe, Chainerを用いた画像認識の実装（研究）</li>
+                            <li>2019年: Ansibleモジュールの実装（仕事）</li>
+                            <li>2022年-現在: 画像認識を利用したサービスの運用開発（仕事）</li>
+                        </ul>
+                    </li>
+                    <li>JavaScript: 主に仕事で使用</li>
+                    <ul>
+                        <li>2020年: Node.jsを用いた外部サービス連携開発、Node.jsを用いたWeb API開発補助（仕事）</li>
+                        <li>2021年：Reactのフロント開発補助（仕事）</li>
+                    </ul>
+                    <li>TypeScript: 主に仕事で使用
+                        <ul>
+                            <li>2021年: Node.jsを用いたWebSocketサーバー開発、Next.jsを用いたフロント開発補助（仕事）</li>
+                            <li>2022年: Next.jsを用いたフロント開発（仕事）</li>
+                        </ul>
+                    </li>
+                </ul>
+            </b-col>
+            <b-col>
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CdecPGL" width="100%"
+                    frameborder="0">
+            </b-col>
+        </b-row>
+    </b-container>
+
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <p class="lead">GitHubで公開している主なリポジトリ</p>
+        <p>主にプライベートでのゲーム制作における生成物を公開しています。</p>
+    </div>
+
+    <b-container id="repos-panel">
+        <b-row cols="1" cols-md="2" cols-lg="3" cols-xl="4">
+            <b-col v-for="repo in repos">
+                <b-card class="h-100">
+                    <template #header>
+                        <i class="fas fa-star"></i>{{ repo.starCount }}&ensp;<i class="fas fa-code-branch"></i>{{
+                        repo.forkCount }}
+                    </template>
+                    <b-link :href="repo.url" target="_blank">
+                        <b-card-title>{{ repo.title }}</b-card-title>
+                    </b-link>
+                    <b-card-text>{{ repo.body }}</b-card-text>
+                    <template #footer>
+                        <small class="text-muted">
+                            <div v-for="footer in repo.footers">{{ footer }}<br /></div>
                         </small>
                     </template>
                 </b-card>
